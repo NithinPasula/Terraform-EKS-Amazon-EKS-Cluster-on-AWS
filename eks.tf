@@ -35,6 +35,7 @@ module "eks" {
 
       tags = {
         ExtraTag = "MyCluster"
+        Project  = local.name
       }
     }
   }
