@@ -6,39 +6,7 @@ Provision a production-ready **Amazon EKS cluster** on AWS using Terraform. This
 
 ## Architecture Overview
 
-```
-Internet
-    │
-    ▼
-Internet Gateway
-    │
-    ▼
-┌─────────────────────────────────────────────────────────┐
-│  Amazon VPC  (10.0.0.0/16)                              │
-│                                                          │
-│  ┌──────────────────┐   ┌──────────────────┐            │
-│  │  Public Subnet   │   │  Public Subnet   │            │
-│  │  AZ-1a           │   │  AZ-1b           │            │
-│  │  10.0.1.0/24     │   │  10.0.2.0/24     │            │
-│  │  [NAT Gateway]   │   │  [Load Balancer] │            │
-│  └────────┬─────────┘   └────────┬─────────┘            │
-│           │                      │                       │
-│  ┌────────▼─────────┐   ┌────────▼─────────┐            │
-│  │  Private Subnet  │   │  Private Subnet  │            │
-│  │  AZ-1a           │   │  AZ-1b           │            │
-│  │  10.0.3.0/24     │   │  10.0.4.0/24     │            │
-│  │  [Node Group]    │   │  [Node Group]    │            │
-│  │  [Pods]          │   │  [Pods]          │            │
-│  └────────┬─────────┘   └────────┬─────────┘            │
-│           │                      │                       │
-│  ┌────────▼──────────────────────▼──────────────────┐   │
-│  │     EKS Control Plane (Managed by AWS)           │   │
-│  │     API Server · etcd · Scheduler · Controller   │   │
-│  └──────────────────────────────────────────────────┘   │
-│                                                          │
-│  [IAM Roles & Policies]    [Security Groups]             │
-└─────────────────────────────────────────────────────────┘
-```
+<img width="1440" height="1440" alt="image" src="https://github.com/user-attachments/assets/c1d00658-210f-46fc-b266-2ca4bff39953" />
 
 ---
 
